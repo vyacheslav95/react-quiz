@@ -3,20 +3,14 @@ import classes from './FinishedQuiz.module.css'
 import Button from "../UI/Button/Button";
 
 const FinishedQuiz = props => {
-  // const successCount = Object.keys(props.results).reduce((total, key) => {
-  //   if (props.results[key] === 'success') {
-  //     total++
-  //   }
-  //
-  //   return total
-  // })
+  const successCount = Object.keys(props.results).reduce((total, key) => {
 
-  let successCount = 0
-  for (let key in props.results) {
     if (props.results[key] === 'success') {
-      successCount++
+      total++
     }
-  }
+
+    return total
+  }, 0)
 
   console.log(successCount)
 
