@@ -12,8 +12,6 @@ const FinishedQuiz = props => {
     return total
   }, 0)
 
-  console.log(successCount)
-
   return (
     <div className={classes.FinishedQuiz}>
       <ul>
