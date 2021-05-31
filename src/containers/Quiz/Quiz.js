@@ -22,28 +22,28 @@ class Quiz extends Component {
           {text: 'Цвета света', id: 5},
         ]
       },
-      {
-        id: 2,
-        question: 'Сколько лет планете Земля?',
-        rightAnswerId: 1,
-        answers: [
-          {text: '3.5 миллиарда', id: 1},
-          {text: '3.5 трилиарда', id: 2},
-          {text: '3.5 мильёрда', id: 3},
-          {text: '3.5 минуты', id: 4},
-        ]
-      },
-      {
-        id: 3,
-        question: 'Какое море на вкус?',
-        rightAnswerId: 4,
-        answers: [
-          {text: 'Кислое', id: 1},
-          {text: 'Сладкое', id: 2},
-          {text: 'Вишнёвое', id: 3},
-          {text: 'Солёное', id: 4},
-        ]
-      },
+      // {
+      //   id: 2,
+      //   question: 'Сколько лет планете Земля?',
+      //   rightAnswerId: 1,
+      //   answers: [
+      //     {text: '3.5 миллиарда', id: 1},
+      //     {text: '3.5 трилиарда', id: 2},
+      //     {text: '3.5 мильёрда', id: 3},
+      //     {text: '3.5 минуты', id: 4},
+      //   ]
+      // },
+      // {
+      //   id: 3,
+      //   question: 'Какое море на вкус?',
+      //   rightAnswerId: 4,
+      //   answers: [
+      //     {text: 'Кислое', id: 1},
+      //     {text: 'Сладкое', id: 2},
+      //     {text: 'Вишнёвое', id: 3},
+      //     {text: 'Солёное', id: 4},
+      //   ]
+      // },
     ],
   }
 
@@ -101,6 +101,10 @@ class Quiz extends Component {
     isQuizFinished: false,
     results: {},
   })
+
+  componentDidMount() {
+    console.log(`Quiz ID = ${this.props.match.params.id}`)
+  }
 
   render() {
     return (
