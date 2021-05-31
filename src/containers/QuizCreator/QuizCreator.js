@@ -5,6 +5,7 @@ import {createFormControls, validate, validateForm} from "../../form/formFramewo
 import Input from "../../components/UI/Input/Input";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import Select from "../../components/UI/Select/Select";
+import axios from "../../axios/axios-quiz";
 
 class QuizCreator extends Component {
 
@@ -49,10 +50,25 @@ class QuizCreator extends Component {
     })
   }
 
-  createQuizHandler = event => {
+  createQuizHandler = async event => {
     event.preventDefault()
-    console.log(this.state.quiz)
-    // TODO Server
+
+    try {
+      await axios.post(
+        '/quizes.json',
+        this.state.quiz
+      )
+
+      this.setState({
+        quiz: [],
+        rightAnswerId: 1,
+        formControls: createFormControls(),
+        isFormValid: false,
+      })
+    } catch (e) {
+      console.log(e)
+    }
+
   }
 
   inputChangeHandler = (value, controlName) => {
