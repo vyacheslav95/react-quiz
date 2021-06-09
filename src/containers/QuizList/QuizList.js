@@ -46,6 +46,7 @@ function mapStateToProps(state) {
   return {
     quizes: state.quiz.quizes,
     loading: state.quiz.loading,
+    error: state.quiz.error,
   }
 }
 
@@ -54,4 +55,5 @@ function mapDispatchToProps(dispatch) {
     fetchQuizes: () => dispatch(fetchQuizes())
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(QuizList)
