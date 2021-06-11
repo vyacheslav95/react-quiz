@@ -7,7 +7,7 @@ export function auth(email, password, isLogin) {
       email, password,
       returnSequreToken: true,
     }
-
+    console.log(isLogin)
     let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAkoRmieAtu0ZgAhj7k9CL81NqL8NrFSmE'
 
     if (isLogin) {
