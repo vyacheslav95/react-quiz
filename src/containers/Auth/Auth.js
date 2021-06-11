@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import classes from "./Auth.module.css";
-import Button from "../../components/UI/Button/Button";
-import Input from "../../components/UI/Input/Input";
+import React, {Component} from 'react'
+import classes from "./Auth.module.css"
+import Button from "../../components/UI/Button/Button"
+import Input from "../../components/UI/Input/Input"
 import is from 'is_js'
-import {connect} from "react-redux";
-import {auth} from "../../store/actions/auth";
+import {connect} from "react-redux"
+import {auth} from "../../store/actions/auth"
 
 class Auth extends Component {
 

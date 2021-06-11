@@ -1,5 +1,5 @@
-import axios from "axios";
-import {AUTH_LOGOUT, AUTH_SUCCESS} from "./actionTypes";
+import axios from "axios"
+import {AUTH_LOGOUT, AUTH_SUCCESS} from "./actionTypes"
 
 export function auth(email, password, isLogin) {
   return async dispatch => {
@@ -17,14 +17,15 @@ export function auth(email, password, isLogin) {
     const response = await axios.post(url, authData)
     const data = response.data
     data.expiresIn = '3600' // added because of absent the field in the response
-    const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000)
+    const {localId, idToken, expiresIn} = data;
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
 
-    localStorage.setItem('token', data.idToken)
-    localStorage.setItem('userId', data.localId)
+    localStorage.setItem('token', idToken)
+    localStorage.setItem('userId', localId)
     localStorage.setItem('expirationDate', expirationDate)
 
-    dispatch(authSuccess(data.idToken))
-    dispatch(autoLogout(data.expiresIn))
+    dispatch(authSuccess(idToken))
+    dispatch(autoLogout(expiresIn))
   }
 }
 
@@ -40,6 +41,10 @@ export function logout() {
   return {
     type: AUTH_LOGOUT
   }
+}
+
+export function autoLogin() {
+
 }
 
 export function authSuccess(token) {
